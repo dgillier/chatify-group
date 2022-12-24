@@ -217,6 +217,17 @@ class ChatifyMessenger
     }
 
     /**
+     * Count All Unseen messages
+     *
+     * @param int $user_id
+     * @return Collection
+     */
+    public function countAllUnseenMessages()
+    {
+        return Message::where('to_id', Auth::user()->id)->where('seen', 0)->count();
+    }
+
+    /**
      * Get user list's item data [Contact Itme]
      * (e.g. User data, Last message, Unseen Counter...)
      *
